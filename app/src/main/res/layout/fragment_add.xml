@@ -4,52 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="24dp"
     tools:context=".fragments.add.AddFragment">
 
     <EditText
-        android:id="@+id/edit_Txt1"
+        android:id="@+id/add_Title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
+        android:layout_height="60dp"
+        android:layout_marginTop="50dp"
         android:hint="Titulo"
-        android:inputType="text"
+        android:padding="12dp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/tomato_border"/>
 
     <EditText
-        android:id="@+id/edit_Txt2"
+        android:id="@+id/add_Description"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Discripçao"
-        android:inputType="text"
+        android:layout_height="100dp"
+        android:layout_marginTop="12dp"
+        android:hint="Descriçao"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:gravity="top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_Txt1" />
+        app:layout_constraintTop_toBottomOf="@+id/add_Title"
+        android:background="@drawable/tomato_border"/>
 
     <Button
-        android:id="@+id/save_btn"
+        android:id="@+id/add_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:backgroundTint="@color/seafoam"
+        android:backgroundTint="@color/tomato"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="50dp"
-        android:text="Salvar"
-        android:textSize="16sp"
+        android:clickable="true"
+        android:text="SALVAR"
+        android:textSize="15sp"
         android:textStyle="bold"
-        android:fontFamily="@font/poppins"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_Txt2" />
+        app:layout_constraintTop_toBottomOf="@+id/add_Description" />
 </androidx.constraintlayout.widget.ConstraintLayout>

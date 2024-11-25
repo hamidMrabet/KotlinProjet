@@ -8,40 +8,34 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.example.myapptodo.R
-import android.view.View.OnClickListener
-import androidx.compose.animation.core.animateDpAsState
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.myapptodo.data.ListViewModel
-import com.example.myapptodo.R.id.recyclerview as recyclerview
+import com.example.myapptodo.data.TaskAdapter
+import com.example.myapptodo.data.TaskViewModel
 
 
 class ListFragment : Fragment() {
 
-    private lateinit var mUserViewModel: ListViewModel
+    private lateinit var taskViewModel: TaskViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_list, container, false)
 
-        val adapter = ListAdapter()
-        val recyclerView = view.findViewById<>(recyclerview)
-        recyclerView.adapter = adapter
+        val adapter = TaskAdapter()
+        val recyclerView = view.recyclerview
+        adapter.also { recyclerView.adapter = it }
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        mUserViewModel = ViewModelProvider(this).get(ListViewModel::class.java)
-        mUserViewModel.readAllData.observe(viewLifecycleOwner, Observer { task ->
-            adapter.setData(task)
+        taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
+        taskViewModel.allTasks.observe(viewLifecycleOwner, Observer { task ->
+            adapter.setTasks(task)
         })
 
-
-
-        view.findViewById<Button>(R.id.floatingActionButton).setOnClickListener {
+        view.findViewById<Button>(R.id.Fab_Button).setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
         return view

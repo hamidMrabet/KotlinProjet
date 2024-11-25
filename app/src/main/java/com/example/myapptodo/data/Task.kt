@@ -7,6 +7,6 @@ import androidx.room.PrimaryKey
 data class Task(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val titleTask: String?,
-    val discriptionTask: String?
+    val titleTask: String,
+    val descriptionTask: String
 )
