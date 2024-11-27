@@ -36,6 +36,6 @@
             app:destination="@id/listFragment" />
         <argument
             android:name="currentTask"
-            app:argType="reference" />
+            app:argType="com.example.myapptodo.data.Task" />
     </fragment>
 </navigation>
