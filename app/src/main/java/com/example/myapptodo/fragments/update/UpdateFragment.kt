@@ -77,7 +77,7 @@ class UpdateFragment: Fragment() {
                     findNavController().navigate(R.id.action_updateFragment_to_listFragment)
                 }
                 builder.setNegativeButton("Não") { _, _ -> }
-                builder.setTitle("Delete ${args.currentTask.titleTask}?")
+                builder.setTitle("Excluir ${args.currentTask.titleTask}?")
                 builder.setMessage("Confirmar o Cancelamento ${args.currentTask.titleTask}?")
                 builder.create().show()
 

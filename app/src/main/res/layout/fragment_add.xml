@@ -19,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/tomato_border"/>
+        android:background="@drawable/grey_card_border"/>
 
     <EditText
         android:id="@+id/add_Description"
@@ -27,25 +27,26 @@
         android:layout_height="100dp"
         android:layout_marginTop="12dp"
         android:hint="Descriçao"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:padding="12dp"
         android:gravity="top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_Title"
-        android:background="@drawable/tomato_border"/>
+        android:background="@drawable/grey_card_border"/>
 
     <Button
         android:id="@+id/add_btn"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:backgroundTint="@color/tomato"
+        android:background="@drawable/my_button"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="50dp"
         android:clickable="true"
-        android:text="SALVAR"
+        android:text="Salvar"
+        android:textAllCaps="false"
         android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="@color/white"

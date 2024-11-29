@@ -63,13 +63,14 @@ class ListFragment : Fragment() {
             taskViewModel.deleteAllTasks()
             Toast.makeText(
                 requireContext(),
-                "Successfully removed everything",
+                "Todas as Tarefas foram excluidas",
                 Toast.LENGTH_SHORT).show()
         }
         builder.setNegativeButton("Não") { _, _ -> }
-        builder.setTitle("Delete everything?")
-        builder.setMessage("Are you sure you want to delete everything?")
-        builder.create().show()
+        builder.setTitle("Confirmar a Exclusão de todas as Tarefas?")
+        builder.setMessage("Continuar")
+        val alert =  builder.create()
+        alert.show()
     }
 }
 

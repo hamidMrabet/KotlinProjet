@@ -16,7 +16,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.myapptodo"
-        minSdk = 28
+        minSdk = 34
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -37,13 +37,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
         jvmTarget = "1.8"
     }
     buildFeatures {
+        compose = true
         dataBinding = true
         viewBinding = true
     }
@@ -79,75 +80,28 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
-    val nav_version = "2.8.0"
-
-    // Jetpack Compose integration
-    implementation("androidx.navigation:navigation-compose:$nav_version")
-
-    // Views/Fragments integration
-    implementation("androidx.navigation:navigation-fragment:$nav_version")
-    implementation("androidx.navigation:navigation-ui:$nav_version")
-
-    // Feature module support for Fragments
-    implementation("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
-
-    // Testing Navigation
-    androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
-
-    implementation("androidx.room:room-runtime:2.6.1")
-    annotationProcessor("androidx.room:room-compiler:2.6.1")
-
-
-
-    // To use Kotlin Symbol Processing (KSP)
-    implementation("com.google.dagger:hilt-android:2.51.1")
-    ksp("com.google.dagger:hilt-android-compiler:2.51.1")
-    ksp("com.google.dagger:dagger-compiler:2.51.1")
-    ksp("androidx.room:room-compiler:2.6.1")
-
-    // optional - Kotlin Extensions and Coroutines support for Room
-    implementation("androidx.room:room-ktx:2.6.1")
-
-    // optional - RxJava2 support for Room
-    implementation("androidx.room:room-rxjava2:2.6.1")
-
-    // optional - RxJava3 support for Room
-    implementation("androidx.room:room-rxjava3:2.6.1")
-
-    // optional - Guava support for Room, including Optional and ListenableFuture
-    implementation("androidx.room:room-guava:2.6.1")
-
-    // optional - Test helpers
-    testImplementation("androidx.room:room-testing:2.6.1")
-
-    // optional - Paging 3 Integration
-    implementation("androidx.room:room-paging:2.6.1")
-
-    val lifecycle_version = "2.8.5"
-
-    // ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version")
-    // LiveData
-    implementation("androidx.lifecycle:lifecycle-livedata:$lifecycle_version")
-    // Lifecycles only (without ViewModel or LiveData)
-    implementation("androidx.lifecycle:lifecycle-runtime:$lifecycle_version")
-
-    // Saved state module for ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
-
-    // Annotation processor
-    annotationProcessor("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
-    // alternately - if using Java8, use the following instead of lifecycle-compiler
-    implementation("androidx.lifecycle:lifecycle-common-java8:$lifecycle_version")
-
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72")
-
-    implementation("androidx.navigation:navigation-fragment-ktx:2.8.4")
-
-    implementation("androidx.navigation:navigation-ui-ktx:2.8.4")
-
-
-
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
+    implementation(libs.androidx.navigation.dynamic.features.fragment)
+    androidTestImplementation(libs.androidx.navigation.testing)
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+    ksp(libs.com.google.dagger.dagger.compiler)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.room.ktx)
+    implementation(libs.androidx.room.room.rxjava2)
+    implementation(libs.androidx.room.rxjava3)
+    implementation(libs.androidx.lifecycle.viewmodel)
+    implementation(libs.androidx.lifecycle.livedata)
+    implementation(libs.androidx.lifecycle.runtime)
+    implementation(libs.androidx.lifecycle.viewmodel.savedstate)
+    annotationProcessor(libs.androidx.lifecycle.compiler)
+    implementation(libs.androidx.lifecycle.common.java8)
+    implementation(libs.kotlin.stdlib.jdk7)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
 
 }

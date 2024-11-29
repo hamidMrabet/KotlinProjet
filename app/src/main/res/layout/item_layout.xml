@@ -15,21 +15,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@drawable/tomato_border"
+            android:background="@drawable/grey_card_border"
             android:padding="20dp" >
 
             <TextView
-                android:id="@+id/title_Viewtxt"
+                android:id="@+id/title_View"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="10dp"
                 android:text="Titulo"
-                android:textColor="@color/tomato"
+                android:textColor="@color/bleu"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/description_Viewtxt"
+                android:id="@+id/description_View"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
