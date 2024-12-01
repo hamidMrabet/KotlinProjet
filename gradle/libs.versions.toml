@@ -25,6 +25,7 @@ runner = "1.6.2"
 cardview = "1.0.0"
 
 [libraries]
+androidx-androidx-navigation-safe-args-gradle-plugin = { module = "androidx.navigation.safeargs.kotlin:androidx.navigation-safe-args-gradle.plugin", version.ref = "navigationFragment" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-lifecycle-common-java8 = { module = "androidx.lifecycle:lifecycle-common-java8", version.ref = "lifecycleRuntimeKtx" }
 androidx-lifecycle-compiler = { module = "androidx.lifecycle:lifecycle-compiler", version.ref = "lifecycleRuntimeKtx" }
@@ -33,6 +34,7 @@ androidx-lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata"
 androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycleRuntimeKtx" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragment" }
 androidx-lifecycle-viewmodel-savedstate = { module = "androidx.lifecycle:lifecycle-viewmodel-savedstate", version.ref = "lifecycleRuntimeKtx" }
+androidx-navigation-safe-args-gradle-plugin_z = { module = "androidx.navigation:navigation-safe-args.gradle.plugin)" }
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationFragment" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
 androidx-room-room-rxjava2 = { module = "androidx.room:room-rxjava2", version.ref = "roomRuntime" }

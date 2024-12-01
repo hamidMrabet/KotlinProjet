@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import android.app.AlertDialog
+import android.app.AlertDialog.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -21,7 +22,8 @@ import com.example.myapptodo.data.TaskViewModel
 
 
 class UpdateFragment: Fragment() {
-    private val args by navArgs<UpdateFragmentArgs>()
+
+    private val args: UpdateFragmentArgs by navArgs()
     private lateinit var taskViewModel: TaskViewModel
 
 
@@ -31,6 +33,7 @@ class UpdateFragment: Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_update, container, false)
         taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
+
         view.findViewById<EditText>(R.id.update_Title).setText(args.currentTask.titleTask)
         view.findViewById<EditText>(R.id.update_Description).setText(args.currentTask.descriptionTask)
         val updateButton = view.findViewById<Button>(R.id.update_btn)

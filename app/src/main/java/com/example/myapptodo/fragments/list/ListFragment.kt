@@ -40,7 +40,7 @@ class ListFragment : Fragment() {
             adapter.setData(task)
         })
 
-        view.findViewById<Button>(R.id.Fab_Button).setOnClickListener {
+        view.findViewById<Button>(R.id.Add_Button).setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
         setHasOptionsMenu(true)

@@ -4,7 +4,8 @@ plugins {
     alias(libs.plugins.compose.compiler)
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android") version "2.51.1" apply false
-    id ("kotlin-parcelize")
+    id("kotlin-parcelize")
+    id("androidx.navigation.safeargs")
 }
 
 
@@ -16,7 +17,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.myapptodo"
-        minSdk = 34
+        minSdk = 29
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -37,8 +38,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = "1.8"
