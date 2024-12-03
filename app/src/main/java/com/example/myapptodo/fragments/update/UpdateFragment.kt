@@ -11,7 +11,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import android.app.AlertDialog
-import android.app.AlertDialog.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -22,26 +21,24 @@ import com.example.myapptodo.data.TaskViewModel
 
 
 class UpdateFragment: Fragment() {
-
     private val args: UpdateFragmentArgs by navArgs()
     private lateinit var taskViewModel: TaskViewModel
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_update, container, false)
-        taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
 
+        val view = inflater.inflate(R.layout.fragment_update, container, false)
+        val updateButton = view.findViewById<Button>(R.id.update_btn)
+
+        taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
         view.findViewById<EditText>(R.id.update_Title).setText(args.currentTask.titleTask)
         view.findViewById<EditText>(R.id.update_Description).setText(args.currentTask.descriptionTask)
-        val updateButton = view.findViewById<Button>(R.id.update_btn)
 
         updateButton.setOnClickListener {
             updateItem()
         }
-
         setHasOptionsMenu(true)
         return view
     }
@@ -73,16 +70,15 @@ class UpdateFragment: Fragment() {
 
         private fun deleteTask() {
             val builder = AlertDialog.Builder(requireContext())
-
-                builder.setPositiveButton("Sim") { _, _ ->
+            builder.setTitle("Excluir a Trefa")
+                .setMessage("confirme a Exclusão?")
+                .setPositiveButton("Sim") { _, _ ->
                     taskViewModel.deleteTask(args.currentTask)
-                    Toast.makeText(requireContext(), "Tarefa Excluida: ${args.currentTask.titleTask}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Tarefa Excluida com sucesso: ${args.currentTask.titleTask}", Toast.LENGTH_SHORT).show()
                     findNavController().navigate(R.id.action_updateFragment_to_listFragment)
                 }
-                builder.setNegativeButton("Não") { _, _ -> }
-                builder.setTitle("Excluir ${args.currentTask.titleTask}?")
-                builder.setMessage("Confirmar o Cancelamento ${args.currentTask.titleTask}?")
-                builder.create().show()
-
+                .setNegativeButton("Não") { dialog, _ -> dialog.dismiss()}
+            val alertDialog: AlertDialog = builder.create()
+            alertDialog.show()
     }
 }
